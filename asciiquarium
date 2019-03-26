@@ -52,26 +52,18 @@ use Getopt::Std;
 use strict;
 use warnings;
 
-my $version = "1.1";
+
+
 my $new_fish = 1;
 my $new_monster = 1;
 
-our $opt_c;
-getopts('c');
 
-if ($opt_c) {			# 'classic' mode
-	$new_fish = 0;
-	$new_monster = 0;
-}
 
 my @random_objects = init_random_objects();
 
+
 # the Z depth at which certain items occur
 my %depth = (
-	# no gui yet
-	guiText		=> 0,
-	gui		=> 1,
-
 	# under water
 	shark		=> 2,
 	fish_start	=> 3,
@@ -1485,9 +1477,4 @@ sub rand_color {
 		$color_mask =~ s/$i/$color/gm;
 	}
 	return $color_mask;
-}
-
-sub VERSION_MESSAGE {
-	print "asciiquarium $version\n";
-	exit;
 }
