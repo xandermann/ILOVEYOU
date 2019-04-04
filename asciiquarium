@@ -1423,50 +1423,10 @@ sub random_object {
 	$random_objects[$sub]->($dead_object, $anim);
 }
 
-sub dprint {
-	open(D, ">>", "debug");
-	print D @_, "\n";
-	close(D);
-}
-
-sub sighandler {
-	my ($sig) = @_;
-	if($sig eq 'INT') { quit(); }
-	elsif($sig eq 'WINCH') {
-		# ignore SIGWINCH, only redraw when requested
-	}
-	else { quit("Exiting with SIG$sig"); }
-}
-
 sub quit {
 	my ($mesg) = @_;
 	print STDERR $mesg, "\n" if(defined($mesg));
 	exit;
-}
-
-
-sub initialize {
-	# this may be paranoid, but i don't want to leave
-	# the user's terminal in a state that they might not
-	# know how to fix if we die badly
-	foreach my $sig (keys %SIG) {
-		$SIG{$sig} = 'sighandler' unless(defined($SIG{$sig}));
-	}
-}
-
-
-sub center {
-	my ($width, $mesg) = @_;
-	my $l = length($mesg);
-	if($l < $width) {
-		return ' 'x(int(($width - length($mesg))/2)) . $mesg;
-	}
-	elsif($l > $width) {
-		return(substr($mesg, 0, ($width - ($l + 3))) . "...");
-	}
-	else {
-		return $mesg;
-	}
 }
 
 sub rand_color {
