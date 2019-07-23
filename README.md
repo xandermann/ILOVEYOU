@@ -15,11 +15,11 @@
 
 # Usage
 
-	./asciiquarium
+	./ILOVEYOU
 
 	- or -
 
-	./asciiquarium -c		# Enable the classic mode
+	./ILOVEYOU -c		# Enable the classic mode
 
 # While running:
 
