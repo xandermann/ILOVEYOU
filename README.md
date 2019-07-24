@@ -4,8 +4,7 @@
 
 # Installation
 
-	sudo apt-get install libcurses-perl
-	sudo apt-get install build-essential
+	sudo apt-get install libcurses-perl build-essential
 
 	cpan
 	# agree to the defaults for everything
